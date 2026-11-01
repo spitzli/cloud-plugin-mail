@@ -1,0 +1,245 @@
+{
+  "files": {
+    ".dockerignore": "a183319ba0dec66a96f2b9c5831133f22fe2c504132e122260faaf69709509f0",
+    ".github/workflows/plugin.yml": "e67b89b637ea8c6b53474f66eee116a52b8ba0e344f07038f62c412af1b5f16e",
+    ".gitignore": "a59a536bb3bbe5b75857ee1c7acfc649c72efe7cef5a0af14181a3c15e5afe5c",
+    "COMMERCIAL-LICENSING.md": "5b8832f5014f16e2cf4f7ee295de32760eed20981495d184bd9f1517be256a09",
+    "Cargo.toml": "cc96ecd1a50509c7a0e8da29dc047c0f0aa8582da01779033a98423c8748d49c",
+    "Dockerfile": "2a76fd1d1a49dfff7cea6bbd668e5cd92b8241ed6adbb521103394096b65dfaa",
+    "LICENSE": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+    "NOTICE": "41a1f1cc34e97e5417d6c92a9d81501c08a3bef23ebf2f54f82d78b5b77cde4b",
+    "README.md": "b852ea93e8edbd2b6fcdec5f1686475a17e4ee4c9e67ceae0e5c8d3d94912072",
+    "STANDALONE.md": "20b1b58627a9807857629d9b8899bc87d05c62a0583a631ea8d108ba63e0df6c",
+    "manifest.json": "0d57f153c2d48d24e5dbdb7cbe2b7a0fbd46debcd44a73e0cdee15a331f3fa1c",
+    "rust-toolchain.toml": "7553618f800829444096beea3dce84c3d07585efda504c19adb6787369bbd9e8",
+    "scripts/plugin-release/build_oci.py": "122a1befb68f40864093cb34490ecd61b67268574be0651bb709f99f7976e9e5",
+    "scripts/plugin-release/release.mjs": "a51a703b0bc6f87ebfddb367862b40445cca90a62bbe076885d311c02d6c396c",
+    "src/bin/webdock-mail-gateway.rs": "fced75dc79cb1b964815aa34ff5f2a8070113a4132bacef3ce4f503b5f112d13",
+    "src/delivery.rs": "9ca26c88fc673489aba7cf9fd0e2ba5826ce621733b3cbc54e21c9a70de94a7d",
+    "src/engine.rs": "cf7c9e435c553e43cc15d9c2516aa8f2262bc69a2418b6ce7775f237c7f3969e",
+    "src/executor.rs": "93f2d94ccc428e4544c2eab6d7bbf1b6f51b65397c586d72a936f8c81b6b321b",
+    "src/lib.rs": "38e60df4e565c6f7badeeecd3c90f8cc12a2f78b782fb32aaf25b2dace0a19ac",
+    "src/listener.rs": "23c05b8d8909b1805d717b32d629fbce06e4ca43a0825f008e6e681adfeb939e",
+    "src/mailboxes.rs": "75ccdbf9c433a6b739d8bc274fa6cc1ea211cf8151394a6bcf266df0c4859b42",
+    "src/mailboxes/recovery_tests.rs": "d80d66d38e96c6eef7b5b8397e9a979f17faa9ef528398bfca0125ca472a8521",
+    "src/main.rs": "e50b39bb26f946987504435470cf85f0de51c1ac6a17f730f961a08c91c7bacc",
+    "src/payload.rs": "a4516af7a8dd5c115c8052d8f8b1b5468fe83e8eb326829b16bbfffd0528cf6f",
+    "src/recovery.rs": "a9c672b6d2967980a7534b5dad731028fd81a86be1ee019bc9eef903e12677f3",
+    "src/recovery.sql": "c0e0a8e3b1f8734a0cfda790cd80d92ae9772b3c2e2698af63dfd16b884ae9d6",
+    "src/recovery/tests.rs": "5ae0c1e2e5ed4602bf04c6101376d15371ba9b30ec033926798c1a758d26a26e",
+    "src/startup.rs": "0cabd97683fef944c4024bca06cf010c863f362ed237a27bc63fb6969363a2de",
+    "src/startup_tests.rs": "677fa5d42ce4a2ec3b16329e5a453c28a99d09cde526233accd23432a1fe671d",
+    "src/store.rs": "90e86d9f731b44006a2adc2f4825b43e131f374b94cbeb3af157b7e6669378fd",
+    "src/transport.rs": "c817c27599f438d881bdd67b201572f5cd805ac11da2c84677f1dd2dab1cf74f",
+    "standalone.json": "37c50c0d9c3948b4a2c496db750635c1fd41b607e637397665ad6842726aaad0",
+    "tests/customer_isolation.rs": "41a2474b7be86215fca39ad09243d5be068d3967d02cebf2069def7b44a8139a",
+    "tests/fixtures/mailbox-recovery.py": "f1d705e23371f371b7d93e9b8e5dd310d16916dc0e99d0c17fa9e5b7a03faff6",
+    "tests/fixtures/review54-10-fixture-wiring-failure.json": "fa46e1ccf7103bbf4e091e639e358bae521e87d33fd6dfca72d43f832808957d",
+    "tests/fixtures/review54-10-green.json": "86319eae6cf86af423049832728e35d4e409abc582c8c3e8a6dc7a52974f3562",
+    "tests/fixtures/review54-10-red.json": "39a967073d25f3205295b759b28c5c74079e0832cc876de4f872b614c3307e1b",
+    "tests/fixtures/review54-10-verification.json": "60466541b959aa33cba3a31bdb83cf742a42e5834a9ca7af7f0d95d6466c4323",
+    "tests/fixtures/review54-10-zero-row-red.json": "98b652d5e3fb3eda26e87be8f1b78314d6073f6b0ea969f8f2bcbc95212c270d",
+    "tests/mailboxes.rs": "1f27f81492751a55e7710435c2b1d16f20f98b57a95098f8b4e05ed1d6adfa52",
+    "tests/managed_actions.rs": "e80f7e6c9b891419ce6dd2ed458c3cfef0ea29a8e620ea72b15c41944ec5350c",
+    "tests/managed_contract.rs": "bca7f9ca47c7f69d4caa9f6361447657228447f4ac2aaf613d0942f7ed3d207e",
+    "tests/managed_process.rs": "b63f1258709e6ed5f651a2c332196c107a5cc8449dc6a20d09db2a00639001ea",
+    "tests/managed_transport.rs": "d8a8fa91c3ee595c1b6b54f147d6d69a6622b7aa6992995130fc84803ab233db",
+    "tests/private_payload.rs": "ab86f50d677ef148eed0e3fddbe2222d0fe9a65c6fd01b98f98bb85f021bbafb",
+    "tests/reconciliation.rs": "6b4298dce601fab70454025af15a635f15a6d3522475bcd2de82ca1325fcf64f",
+    "tests/recovery.rs": "c39cfdc5ec065c28391bd5a5fd5a016022880a57d49c5a7c1d812485c5506947",
+    "tests/sending.rs": "5dd4db8578d1e49b5a7511856c49b2a72799f94df6d0b62487f751c0ae3080ab",
+    "tests/startup_diagnostics.rs": "160e8f72b3c6f48f0981e154da3c2601f816143032d334700ebb31f82c07cca7",
+    "tests/storage_transport.rs": "a2cb0eb164720e96505268e9f069926380fa15be138dbf0652056829ff677439",
+    "tools/manifest-validator/Cargo.toml": "16dbb17ae720920e0eec3bee5d7b1064871b7a493db19d425a6e4f7e62544730",
+    "tools/manifest-validator/src/main.rs": "2f3b2a61141a56f57f3ee87c726ea56da07b80dc629f25223e894179db36068f",
+    "ui/Send.tsx": "fda7ab352d3425712ecbf823d2c197812359e9af792864d342f5f11f9d4de499",
+    "ui/index.tsx": "99b8c549a7b99c3222b59b81242f0ab251594834abfb4af7ad35be540521fa51",
+    "ui/nav.ts": "25eace5a913e4d6dc4873c085289431a6454b9492cc3529a6da91fc862390c05",
+    "ui/tsconfig.json": "a0c11bffe89335b4ceef298f1065a804061721d1384ce08ae0ee5fea36a4511e"
+  },
+  "formatVersion": 1,
+  "inventory": {
+    "allDependencyClosure": [
+      "crates/access",
+      "crates/agent",
+      "crates/agent-control",
+      "crates/agent-protocol",
+      "crates/browser-session",
+      "crates/build",
+      "crates/control-plane",
+      "crates/core",
+      "crates/databases",
+      "crates/export-protocol",
+      "crates/hosting",
+      "crates/identity",
+      "crates/ids",
+      "crates/mail",
+      "crates/mail-message",
+      "crates/mail-protocol",
+      "crates/mail-runtime",
+      "crates/oauth",
+      "crates/object-storage",
+      "crates/persistence",
+      "crates/plugin-host",
+      "crates/plugin-http",
+      "crates/plugin-kit",
+      "crates/plugin-protocol",
+      "crates/plugin-runtime",
+      "crates/provider-connections",
+      "crates/registry",
+      "crates/repository-protocol",
+      "crates/secrets",
+      "crates/supervisor",
+      "vendor/maylily"
+    ],
+    "connectionsOwner": "Core",
+    "forbiddenSdkCrates": [],
+    "formatVersion": 1,
+    "lockfilesRequireRegeneration": true,
+    "plugins": [
+      {
+        "coreIntegrationDependencies": [
+          "webdock-browser-session",
+          "webdock-build",
+          "webdock-databases",
+          "webdock-hosting",
+          "webdock-identity",
+          "webdock-ids",
+          "webdock-persistence",
+          "webdock-plugin-host"
+        ],
+        "coreIntegrationTests": [
+          "connected_export_compile.rs",
+          "core.rs",
+          "owned.rs",
+          "readonly.rs",
+          "reports.rs",
+          "repository.rs"
+        ],
+        "name": "archives",
+        "package": "webdock-archives",
+        "sdkDependencies": [
+          "webdock-export-protocol",
+          "webdock-object-storage",
+          "webdock-plugin-http",
+          "webdock-plugin-kit",
+          "webdock-plugin-protocol",
+          "webdock-plugin-runtime",
+          "webdock-repository-protocol"
+        ],
+        "source": "plugins/archives"
+      },
+      {
+        "coreIntegrationDependencies": [],
+        "coreIntegrationTests": [],
+        "name": "echo-demo",
+        "package": "webdock-echo-demo",
+        "sdkDependencies": [
+          "webdock-plugin-protocol",
+          "webdock-plugin-runtime"
+        ],
+        "source": "plugins/echo-demo"
+      },
+      {
+        "coreIntegrationDependencies": [],
+        "coreIntegrationTests": [],
+        "name": "github-repository",
+        "package": "webdock-github-repository",
+        "sdkDependencies": [
+          "webdock-plugin-runtime",
+          "webdock-repository-protocol"
+        ],
+        "source": "plugins/github-repository"
+      },
+      {
+        "coreIntegrationDependencies": [],
+        "coreIntegrationTests": [],
+        "name": "hosting",
+        "package": "webdock-hosting",
+        "sdkDependencies": [
+          "webdock-plugin-kit",
+          "webdock-plugin-protocol",
+          "webdock-plugin-runtime"
+        ],
+        "source": "plugins/hosting"
+      },
+      {
+        "coreIntegrationDependencies": [],
+        "coreIntegrationTests": [],
+        "name": "lumaserv-compute",
+        "package": "webdock-lumaserv-compute",
+        "sdkDependencies": [
+          "webdock-plugin-http",
+          "webdock-plugin-protocol",
+          "webdock-plugin-runtime"
+        ],
+        "source": "plugins/lumaserv-compute"
+      },
+      {
+        "coreIntegrationDependencies": [],
+        "coreIntegrationTests": [],
+        "name": "mail",
+        "package": "webdock-mail",
+        "sdkDependencies": [
+          "webdock-mail-message",
+          "webdock-mail-protocol",
+          "webdock-mail-runtime",
+          "webdock-plugin-kit",
+          "webdock-plugin-protocol",
+          "webdock-plugin-runtime"
+        ],
+        "source": "plugins/mail"
+      },
+      {
+        "coreIntegrationDependencies": [],
+        "coreIntegrationTests": [],
+        "name": "mail-relay",
+        "package": "webdock-mail-relay",
+        "sdkDependencies": [
+          "webdock-mail-message",
+          "webdock-mail-protocol",
+          "webdock-plugin-http",
+          "webdock-plugin-runtime"
+        ],
+        "source": "plugins/mail-relay"
+      },
+      {
+        "coreIntegrationDependencies": [],
+        "coreIntegrationTests": [],
+        "name": "object-storage",
+        "package": "webdock-object-storage-plugin",
+        "sdkDependencies": [
+          "webdock-plugin-kit",
+          "webdock-plugin-protocol",
+          "webdock-plugin-runtime"
+        ],
+        "source": "plugins/object-storage"
+      },
+      {
+        "coreIntegrationDependencies": [],
+        "coreIntegrationTests": [],
+        "name": "postgres",
+        "package": "webdock-postgres",
+        "sdkDependencies": [
+          "webdock-plugin-kit",
+          "webdock-plugin-protocol",
+          "webdock-plugin-runtime"
+        ],
+        "source": "plugins/postgres"
+      }
+    ],
+    "sdkCrates": [
+      "crates/export-protocol",
+      "crates/mail-message",
+      "crates/mail-protocol",
+      "crates/mail-runtime",
+      "crates/object-storage",
+      "crates/plugin-http",
+      "crates/plugin-kit",
+      "crates/plugin-protocol",
+      "crates/plugin-runtime",
+      "crates/repository-protocol"
+    ]
+  },
+  "sourceLabel": "checkpoint-2225e0d7-plugin-extraction-20261101"
+}
