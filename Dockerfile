@@ -6,16 +6,16 @@ WORKDIR /src
 COPY . .
 # Shared only among reviewed Spitzli platform sources; never customer build code.
 FROM source AS check
-RUN --mount=type=cache,id=spitzli-native-sdk-8ed57d89c3263b050f126e4c2ba7f6cdebb0daa6-registry,target=/usr/local/cargo/registry,sharing=locked --mount=type=cache,id=spitzli-native-sdk-8ed57d89c3263b050f126e4c2ba7f6cdebb0daa6-git,target=/usr/local/cargo/git,sharing=locked --mount=type=cache,id=spitzli-native-sdk-8ed57d89c3263b050f126e4c2ba7f6cdebb0daa6-target,target=/src/target,sharing=locked cargo check --locked --all-targets --jobs 3 && cargo test --locked --all-targets --jobs 3
+RUN --mount=type=cache,id=spitzli-native-sdk-8019f3df67dba3fed3083f22635e4725028c1b5e-registry,target=/usr/local/cargo/registry,sharing=locked --mount=type=cache,id=spitzli-native-sdk-8019f3df67dba3fed3083f22635e4725028c1b5e-git,target=/usr/local/cargo/git,sharing=locked --mount=type=cache,id=spitzli-native-sdk-8019f3df67dba3fed3083f22635e4725028c1b5e-target,target=/src/target,sharing=locked cargo check --locked --all-targets --jobs 3 && cargo test --locked --all-targets --jobs 3
 
 FROM source AS build
-RUN --mount=type=cache,id=spitzli-native-sdk-8ed57d89c3263b050f126e4c2ba7f6cdebb0daa6-registry,target=/usr/local/cargo/registry,sharing=locked --mount=type=cache,id=spitzli-native-sdk-8ed57d89c3263b050f126e4c2ba7f6cdebb0daa6-git,target=/usr/local/cargo/git,sharing=locked --mount=type=cache,id=spitzli-native-sdk-8ed57d89c3263b050f126e4c2ba7f6cdebb0daa6-target,target=/src/target,sharing=locked cargo build --locked --release --bins --jobs 3 && mkdir /out && install -m 0555 /src/target/release/webdock-mail /out/webdock-mail && install -m 0555 /src/target/release/webdock-mail-gateway /out/webdock-mail-gateway
+RUN --mount=type=cache,id=spitzli-native-sdk-8019f3df67dba3fed3083f22635e4725028c1b5e-registry,target=/usr/local/cargo/registry,sharing=locked --mount=type=cache,id=spitzli-native-sdk-8019f3df67dba3fed3083f22635e4725028c1b5e-git,target=/usr/local/cargo/git,sharing=locked --mount=type=cache,id=spitzli-native-sdk-8019f3df67dba3fed3083f22635e4725028c1b5e-target,target=/src/target,sharing=locked cargo build --locked --release --bins --jobs 3 && mkdir /out && install -m 0555 /src/target/release/spitzli-mail /out/spitzli-mail && install -m 0555 /src/target/release/spitzli-mail-gateway /out/spitzli-mail-gateway
 
 FROM docker.io/library/debian:trixie-slim@sha256:f6b08b09a05725f9431502d3b5714f5c4576e82c1a84fa1debe0c24a7e0c3ec4
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY LICENSE COMMERCIAL-LICENSING.md NOTICE /usr/share/licenses/spitzli-cloud/
-COPY --from=build --chown=65532:65532 --chmod=0555 /out/webdock-mail /usr/local/bin/webdock-mail
-COPY --from=build --chown=65532:65532 --chmod=0555 /out/webdock-mail-gateway /usr/local/bin/webdock-mail-gateway
+COPY --from=build --chown=65532:65532 --chmod=0555 /out/spitzli-mail /usr/local/bin/spitzli-mail
+COPY --from=build --chown=65532:65532 --chmod=0555 /out/spitzli-mail-gateway /usr/local/bin/spitzli-mail-gateway
 ENV HOME=/tmp
 USER 65532:65532
-ENTRYPOINT ["/usr/local/bin/webdock-mail"]
+ENTRYPOINT ["/usr/local/bin/spitzli-mail"]
