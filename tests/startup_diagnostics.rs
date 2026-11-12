@@ -1,7 +1,7 @@
 #[test]
 fn startup_failure_does_not_echo_arguments_or_underlying_diagnostics() {
-    let output = std::process::Command::new(env!("CARGO_BIN_EXE_webdock-mail"))
-        .env_remove("WEBDOCK_RECOVERY_COMPONENT_TEST")
+    let output = std::process::Command::new(env!("CARGO_BIN_EXE_spitzli-mail"))
+        .env_remove("SPITZLI_RECOVERY_COMPONENT_TEST")
         .arg("/fixture-private-configuration-marker")
         .output()
         .unwrap();
@@ -32,12 +32,12 @@ fn fixture_startup_markers_are_exact_and_never_echo_poison_or_private_files() {
         (poison, vec!["args", "config_read", "config_decode"]),
     ] {
         for mode in [None, Some("0"), Some("true"), Some("01"), Some("1")] {
-            let mut command = std::process::Command::new(env!("CARGO_BIN_EXE_webdock-mail"));
+            let mut command = std::process::Command::new(env!("CARGO_BIN_EXE_spitzli-mail"));
             command
                 .arg(&path)
-                .env_remove("WEBDOCK_RECOVERY_COMPONENT_TEST");
+                .env_remove("SPITZLI_RECOVERY_COMPONENT_TEST");
             if let Some(value) = mode {
-                command.env("WEBDOCK_RECOVERY_COMPONENT_TEST", value);
+                command.env("SPITZLI_RECOVERY_COMPONENT_TEST", value);
             }
             let output = command.output().unwrap();
             assert!(!output.status.success());
@@ -90,17 +90,17 @@ fn read_failure_metadata_is_scalar_only_for_real_mode_and_owner_cases() {
     std::fs::write(&input, b"poison-private-value").unwrap();
     std::fs::set_permissions(&input, std::fs::Permissions::from_mode(0o644)).unwrap();
     for path in [input, std::fs::canonicalize("/usr/bin/true").unwrap()] {
-        let normal = std::process::Command::new(env!("CARGO_BIN_EXE_webdock-mail"))
+        let normal = std::process::Command::new(env!("CARGO_BIN_EXE_spitzli-mail"))
             .arg(&path)
-            .env_remove("WEBDOCK_RECOVERY_COMPONENT_TEST")
+            .env_remove("SPITZLI_RECOVERY_COMPONENT_TEST")
             .output()
             .unwrap();
         assert!(!normal.status.success());
         assert!(normal.stdout.is_empty());
         assert!(normal.stderr == b"mail_plugin_start_failed\n");
-        let output = std::process::Command::new(env!("CARGO_BIN_EXE_webdock-mail"))
+        let output = std::process::Command::new(env!("CARGO_BIN_EXE_spitzli-mail"))
             .arg(&path)
-            .env("WEBDOCK_RECOVERY_COMPONENT_TEST", "1")
+            .env("SPITZLI_RECOVERY_COMPONENT_TEST", "1")
             .output()
             .unwrap();
         assert!(!output.status.success());

@@ -95,7 +95,7 @@ cargo test --manifest-path Cargo.toml
 # Disposable loopback PostgreSQL for plugin storage; SMTP and turboSMTP are in-test stand-ins.
 # Mailboxes test two isolated customer engines, cross-project reuse, retained suspend/resume and restart reconciliation
 # against real Stalwart CE on local dev k3s, applied by an in-test stand-in for Core:
-WEBDOCK_MAIL_PLUGIN_TEST_ADMIN_URL=postgres://… WEBDOCK_WORKLOAD_TEST_KUBECONFIG=$PWD/.dev-local/k3s/kubeconfig.yaml \
+SPITZLI_MAIL_PLUGIN_TEST_ADMIN_URL=postgres://… SPITZLI_WORKLOAD_TEST_KUBECONFIG=$PWD/.dev-local/k3s/kubeconfig.yaml \
   cargo test --manifest-path Cargo.toml -- --include-ignored
 ```
 
@@ -114,7 +114,7 @@ only the durable send/outbox capability; it never falls back to inline delivery.
 Core is the only queue and budget ledger. Private PostgreSQL stores immutable bytes,
 length/hash and a key sentinel with no domain/customer cascade foreign keys. Retain
 `secretKeyHex`: a purpose-separated SHA256-derived payload key uses the native v1
-cipher/AAD `webdock-mail:v1:payload:<customer>:<reference>`. This does not reinterpret
+cipher/AAD `spitzli-mail:v1:payload:<customer>:<reference>`. This does not reinterpret
 or rotate existing relay, mailbox or engine credential ciphertexts. A wrong retained
 key or corrupt/mismatched payload fails closed. Pending/unknown payloads require Core
 reconciliation; deleting a domain does not delete their bytes.
@@ -181,7 +181,7 @@ operator prerequisite.
 
 ## Native public gateway and cutover
 
-`webdock-mail-gateway` is packaged alongside the plugin executable. Its private JSON
+`spitzli-mail-gateway` is packaged alongside the plugin executable. Its private JSON
 has `listen` (HTTP ingress socket), `runtime` (the existing strict CoreTls shape with
 the runtime's HTTPS origin/domain, separate gateway certificate/key, CA and runtime
 leaf pin), and `preauthentication:{origin,secretFile,authority}` for the existing Core

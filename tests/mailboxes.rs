@@ -1,13 +1,13 @@
-//! A real Stalwart CE engine on the local dev k3s (`WEBDOCK_WORKLOAD_TEST_KUBECONFIG`, context
+//! A real Stalwart CE engine on the local dev k3s (`SPITZLI_WORKLOAD_TEST_KUBECONFIG`, context
 //! `webdock-dev`) behind its Traefik, and plugin storage on a disposable local PostgreSQL
-//! (`WEBDOCK_MAIL_PLUGIN_TEST_ADMIN_URL`, loopback). A stand-in for Core and the cluster's agent
+//! (`SPITZLI_MAIL_PLUGIN_TEST_ADMIN_URL`, loopback). A stand-in for Core and the cluster's agent
 //! applies the engine's objects with kubectl in a namespace of the test's own.
 use serde_json::{Value, json};
+use spitzli_mail::{Dns, Handler, Plugin, Settings, engine, seal::Sealer, store::Store, transport};
+use spitzli_plugin_protocol::{ErrorCode, InvocationClaims, PluginError};
+use spitzli_plugin_runtime::ActionHandler;
 use std::{process::Command, sync::Mutex, time::Duration};
 use tokio_postgres::NoTls;
-use webdock_mail::{Dns, Handler, Plugin, Settings, engine, seal::Sealer, store::Store, transport};
-use webdock_plugin_protocol::{ErrorCode, InvocationClaims, PluginError};
-use webdock_plugin_runtime::ActionHandler;
 
 const IMAGE: &str = "docker.io/stalwartlabs/stalwart@sha256:74e5a7d55303ba525d939c6bf97ed4e010df7521f52d80afc22a815b66bd53f3";
 
@@ -35,7 +35,7 @@ struct Kube {
 }
 fn kubectl(args: &[&str], input: Option<&Value>) -> std::process::Output {
     let kubeconfig =
-        std::env::var("WEBDOCK_WORKLOAD_TEST_KUBECONFIG").expect("local dev kubeconfig");
+        std::env::var("SPITZLI_WORKLOAD_TEST_KUBECONFIG").expect("local dev kubeconfig");
     let mut command = Command::new("kubectl");
     command
         .args(["--kubeconfig", &kubeconfig, "--context", "webdock-dev"])
@@ -168,7 +168,7 @@ impl engine::Workloads for Kube {
 
 fn admin_url() -> url::Url {
     let url = url::Url::parse(
-        &std::env::var("WEBDOCK_MAIL_PLUGIN_TEST_ADMIN_URL").expect("disposable local server"),
+        &std::env::var("SPITZLI_MAIL_PLUGIN_TEST_ADMIN_URL").expect("disposable local server"),
     )
     .unwrap();
     assert_eq!(url.host_str(), Some("127.0.0.1"));
@@ -637,7 +637,7 @@ async fn mailbox_lifecycle() {
     );
 
     // Mail clients reach IMAPS by server name and can verify the issued certificate.
-    let kubeconfig = std::env::var("WEBDOCK_WORKLOAD_TEST_KUBECONFIG").unwrap();
+    let kubeconfig = std::env::var("SPITZLI_WORKLOAD_TEST_KUBECONFIG").unwrap();
     let ca = std::path::Path::new(&kubeconfig)
         .parent()
         .unwrap()

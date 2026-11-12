@@ -1,15 +1,15 @@
 {
   "binaries": [
-    "webdock-mail",
-    "webdock-mail-gateway"
+    "spitzli-mail",
+    "spitzli-mail-gateway"
   ],
   "connectionsOwner": "Core",
   "coreIntegrationDependencies": [],
   "coreIntegrationTests": [],
-  "entrypoint": "webdock-mail",
+  "entrypoint": "spitzli-mail",
   "lockfileRequiresRegeneration": true,
   "name": "mail",
-  "package": "webdock-mail",
+  "package": "spitzli-mail",
   "release": {
     "mode": "native-extension",
     "protocol": "webdock.plugin.v2",
@@ -18,14 +18,14 @@
     "version": "0.3.0"
   },
   "sdkDependencies": [
-    "webdock-mail-message",
-    "webdock-mail-protocol",
-    "webdock-mail-runtime",
-    "webdock-plugin-kit",
-    "webdock-plugin-protocol",
-    "webdock-plugin-runtime"
+    "spitzli-mail-message",
+    "spitzli-mail-protocol",
+    "spitzli-mail-runtime",
+    "spitzli-plugin-kit",
+    "spitzli-plugin-protocol",
+    "spitzli-plugin-runtime"
   ],
   "sdkGit": "https://github.com/spitzli/cloud-plugin-sdk",
-  "sdkRevision": "8ed57d89c3263b050f126e4c2ba7f6cdebb0daa6",
+  "sdkRevision": "8019f3df67dba3fed3083f22635e4725028c1b5e",
   "source": "plugins/mail"
 }
